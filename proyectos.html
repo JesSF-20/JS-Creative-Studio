@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos | Jesús Sánchez</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="img/logo_tics.ico" alt="Logo" class="nav-logo">
+            <div class="logo">JESÚS<span>SÁNCHEZ</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="contacto.html" class="nav-btn">Presupuesto</a></li>
+        </ul>
+    </nav>
+
+    <section class="portfolio" style="padding-top: 150px; padding-bottom: 80px;">
+        <div class="container">
+            <h2 class="section-title">Mis <span>Proyectos</span></h2>
+            <p style="text-align: center; color: #ccc; margin-bottom: 40px;">Haz clic en la imagen o el título para ver en detalle.</p>
+            
+            <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/coralia.mp4')">
+                        <img src="img/portada-coralia.png" alt="Sitio Coralia" class="project-img">
+                        <div class="overlay"><span>Ver Video</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/coralia.mp4">Sitio "Coralia"</h3>
+                        <p>Joyería con cotización personalizada.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('https://www.youtube.com/embed/2Kd8NM_jVYg')">
+                        <img src="img/portada-syncrotask.png" alt="SincroTask Pro" class="project-img">
+                        <div class="overlay"><span>Ver Proyecto</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="https://www.youtube.com/embed/2Kd8NM_jVYg">SincroTask Pro</h3>
+                        <p>Agenda online con base de datos.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/barber.mp4')">
+                        <img src="img/portada-barber.png" alt="BarberHouse" class="project-img">
+                        <div class="overlay"><span>Ver Video</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/barber.mp4">Sitio "BarberHouse"</h3>
+                        <p>Sistema de reservaciones para barbería.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/dbz.mp4')">
+                        <img src="img/portada-dbz.png" alt="Dragon Ball Z" class="project-img">
+                        <div class="overlay"><span>Ver Video</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/dbz.mp4">Tarjeta 3D "DBZ"</h3>
+                        <p>Animaciones interactivas premium.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/Tarjeta.png')">
+                        <img src="img/portada-barb.png" alt="Don Chava" class="project-img">
+                        <div class="overlay"><span>Ver Imagen</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/Tarjeta.png">Branding "Don Chava"</h3>
+                        <p>Diseño de identidad y tarjetas con QR.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/logo1.png')">
+                        <img src="img/portada-logo.png" alt="Logo JS" class="project-img">
+                        <div class="overlay"><span>Ver Logo</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/logo1.png">Logo "JS Studio"</h3>
+                        <p>Diseño de marca profesional.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="video-container" onclick="abrirProyecto('img/carta.mp4')">
+                        <img src="img/portada-carta.png" alt="Carta Virtual" class="project-img">
+                        <div class="overlay"><span>Ver Video</span></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="open-modal" data-src="img/carta.mp4">Regalo "Carta Virtual"</h3>
+                        <p>Animaciones y música personalizada.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <span class="close-modal" onclick="cerrarModal()">&times;</span>
+        <div class="modal-content">
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("projectModal");
+        const modalBody = document.getElementById("modalBody");
+
+        function abrirProyecto(src) {
+            modalBody.innerHTML = ''; 
+            if (src.includes('youtube.com') || src.includes('embed')) {
+                modalBody.innerHTML = `<iframe width="100%" height="450px" src="${src}?autoplay=1&rel=0" frameborder="0" allowfullscreen style="border-radius:15px;"></iframe>`;
+            } else if (src.toLowerCase().endsWith('.png') || src.toLowerCase().endsWith('.jpg') || src.toLowerCase().endsWith('.jpeg')) {
+                modalBody.innerHTML = `<img src="${src}" style="width:100%; border-radius:15px; display:block; margin:auto;">`;
+            } else {
+                modalBody.innerHTML = `<video controls autoplay style="width:100%; border-radius:15px;"><source src="${src}" type="video/mp4"></video>`;
+            }
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function cerrarModal() {
+            modal.style.display = "none";
+            modalBody.innerHTML = '';
+            document.body.style.overflow = "auto";
+        }
+
+        document.querySelectorAll('.open-modal').forEach(item => {
+            item.addEventListener('click', () => {
+                abrirProyecto(item.getAttribute('data-src'));
+            });
+        });
+
+        window.onclick = (e) => { if (e.target == modal) cerrarModal(); };
+    </script>
+</body>
+</html>
