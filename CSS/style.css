@@ -1,777 +1,1127 @@
 :root {
-    --primary: #00d4ff;
-    --secondary: #ffb800;
-    --dark: #0b0b0d;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
+  /* 60% Dominante: Un blanco hueso con un sutil toque frío/pastel, ultra limpio */
+  --dark: #f4f6f9;
+
+  /* Textos Principales: Carbón profundo para una lectura perfecta y elegante */
+  --text-main: #18191c;
+
+  /* 30% Estructural: Tu azul eléctrico, ahora más nítido sobre el fondo claro */
+  --primary: #0066ff;
+
+  /* 10% Acento de Conversión: Coral vibrante para que los botones sigan siendo imanes de clics */
+  --secondary: #ff5a5f;
+
+  /* Glassmorphic para modo claro: Fondo blanco translúcido con sombra suave */
+  --glass: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --text-muted: #575d65; /* Gris medio para descripciones */
+
+  /* Nueva variable para tarjetas flotantes */
+  --card-shadow: rgba(0, 102, 255, 0.06);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: var(--dark);
-    color: white;
-    line-height: 1.6;
-    scroll-behavior: smooth;
+  background-color: var(--dark);
+  color: var(--text-main); /* Cambiado a carbón profundo */
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* NAVBAR */
+/* ==========================================================================
+   NAVBAR (Menú de Navegación Premium)
+   ========================================================================== */
 .navbar {
-    position: fixed;
-    width: 100%;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(11, 11, 13, 0.9);
-    backdrop-filter: blur(15px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.logo {
-    font-weight: 800;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
-}
-
-.logo span {
-    color: var(--primary);
-}
-
-.nav-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary);
+  position: fixed;
+  width: 100%;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(244, 246, 249, 0.8); /* Ajustado al nuevo fondo claro */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil oscuro */
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  font-size: 1.3rem;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.nav-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--glass-border);
+  transition: border-color 0.3s ease; /* Interacción suave al pasar el mouse por la navbar */
+}
+
+.navbar:hover .nav-logo {
+  border-color: var(--primary);
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
 
 .nav-links li a {
-    color: #ccc;
-    text-decoration: none;
-    margin-left: 30px;
-    font-weight: 500;
-    transition: 0.3s;
+  color: #4a4a4a; /* Texto del menú más oscuro para que se lea */
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-    color: var(--primary);
+  color: var(--primary);
 }
 
+/* BOTÓN DE CONVERSIÓN: Diseñado para que resalte inmediatamente */
 .nav-btn {
-    background: var(--primary);
-    color: var(--dark) !important;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: 700 !important;
+  background: var(--secondary) !important; /* Usamos el Coral (10% de acento) */
+  color: white !important;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(255, 90, 95, 0.2); /* Sombra suave del mismo color */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
 }
 
-/* HERO SECTION */
+/* Efecto hover: el botón se eleva sutilmente y brilla más, invitando al clic */
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 90, 95, 0.4);
+}
+
+/* ==========================================================================
+   HERO SECTION (Sección Principal de Impacto)
+   ========================================================================== */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 20px 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* Un padding superior amplio (140px) evita que la barra fija tape tu título */
+  padding: 140px 20px 80px;
 }
 
 .hero-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    align-items: center;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* El texto ocupa un poco más de espacio que la imagen */
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea todo el texto limpiamente a la izquierda */
+  text-align: left;
 }
 
+/* El Badge: Una pequeña etiqueta premium sobre el título */
 .badge {
-    background: var(--glass);
-    border: 1px solid var(--primary);
-    padding: 8px 20px;
-    border-radius: 20px;
-    color: var(--primary);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+  background: rgba(0, 119, 255, 0.1); /* Fondo azul muy suave y transparente */
+  border: 1px solid rgba(0, 119, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: var(--primary); /* Texto azul eléctrico */
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
+/* El Título Principal: Diseñado para capturar la atención al instante */
 .hero h1 {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1.1;
-    margin: 10px 0 20px;
+  font-size: clamp(
+    2.8rem,
+    4.5vw,
+    3.8rem
+  ); /* Se adapta perfectamente desde celulares hasta pantallas 4K */
+  line-height: 1.15;
+  font-weight: 800; /* Letra muy gruesa e imponente */
+  margin-bottom: 20px;
+  letter-spacing: -0.5px; /* Junta un poco las letras para un estilo más editorial y moderno */
 }
 
+/* El truco de color en el H1: El azul destaca la palabra clave (ej. Tu Éxito o Tu Negocio) */
 .hero h1 span {
-    color: var(--secondary);
+  color: var(--primary);
 }
 
+/* Descripción: Letra ligera y color suavizado para que no compita con el H1 */
 .hero-description {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 35px;
-    font-weight: 300;
-    max-width: 650px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4b5563; /* Un gris carbón corporativo que destaca perfectamente sobre blanco */
+  margin-bottom: 35px;
+  font-weight: 400; /* Subimos un poco el grosor a 400 para mejorar la lectura en pantallas claras */
+  max-width: 600px;
 }
 
 .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Tu Imagen o Avatar de Presentación */
 .main-avatar {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
-    border-radius: 40px;
-    object-fit: cover;
-    box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 30px; /* Bordes redondeados modernos, no tan exagerados */
+  object-fit: cover;
+  /* Reemplazamos el resplandor cian por una sombra oscura natural y un borde sutil */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  transition: transform 0.4s ease;
 }
 
-/* SERVICIOS - GRID ORIGINAL */
+/* Efecto interactivo: la imagen floats levemente cuando el usuario pasa el mouse */
+.hero-image:hover .main-avatar {
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   SERVICIOS & GLASSMORPHISM (Efecto Cristal Premium)
+   ========================================================================== */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
 }
 
 .glass {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    border-radius: 25px;
-    overflow: hidden;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    transition: 0.4s ease;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 24px; /* Bordes más redondeados y modernos */
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* Transición cúbica para que el salto al hacer hover sea súper suave */
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
 }
 
 .glass img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--glass-border); /* Separa la imagen del texto limpiamente */
 }
 
 .glass h3,
 .glass p {
-    padding: 0 20px;
+  padding: 0 24px; /* Más espacio interno para que el diseño respire */
 }
 
 .glass h3 {
-    margin-top: 20px;
+  font-size: 1.25rem;
+  margin-top: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
 .glass p {
-    margin-bottom: 25px;
-    padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  color: var(--text-muted); /* Gris suave premium */
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
+/* Efecto al pasar el cursor sobre la tarjeta de servicio */
 .glass:hover {
-    border-color: var(--primary);
-    transform: translateY(-10px);
+  border-color: rgba(
+    0,
+    119,
+    255,
+    0.4
+  ); /* El borde se ilumina sutilmente en azul */
+  transform: translateY(-8px); /* Elevación elegante */
+  box-shadow: 0 20px 40px rgba(0, 119, 255, 0.1); /* Resplandor azul muy fino en el fondo */
 }
 
 .glass i {
-    margin-left: 20px;
-    margin-top: 10px;
-    font-size: 24px;
-    color: var(--primary);
+  margin-left: 24px;
+  margin-top: 22px;
+  font-size: 26px;
+  color: var(--primary);
 }
 
-/* ========== CARRUSEL 3D CURVO ANIMADO ========== */
+/* ==========================================================================
+   CARRUSEL 3D CURVO ANIMADO (Optimizado para Fluidez)
+   ========================================================================== */
 .carousel-container {
-    perspective: 800px;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 60px 0;
-    overflow: hidden;
-    position: relative;
+  perspective: 1000px; /* Mayor perspectiva para un efecto 3D más profundo */
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 0;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Degradados laterales */
+/* Degradados laterales ultra profundos para ocultar los bordes del carrusel */
 .carousel-container::before,
 .carousel-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 150px;
-    height: 100%;
-    z-index: 20;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 180px;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
 }
 .carousel-container::before {
-    left: 0;
-    background: linear-gradient(to right, var(--dark) 0%, transparent 100%);
+  left: 0;
+  background: linear-gradient(to right, var(--dark) 0%, transparent 100%);
 }
 .carousel-container::after {
-    right: 0;
-    background: linear-gradient(to left, var(--dark) 0%, transparent 100%);
+  right: 0;
+  background: linear-gradient(to left, var(--dark) 0%, transparent 100%);
 }
 
 .carousel-track {
-    display: flex;
-    gap: 30px;
-    animation: scrollCarousel 25s linear infinite;
-    transform-style: preserve-3d;
-    will-change: transform;
+  display: flex;
+  gap: 30px;
+  animation: scrollCarousel 30s linear infinite; /* 30 segundos hace que sea sutil y legible */
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
+/* Pausa suave cuando el cliente inspecciona un servicio */
 .carousel-container:hover .carousel-track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 @keyframes scrollCarousel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .carousel-item {
-    flex-shrink: 0;
-    width: 320px;
-    height: 440px;
-    transform-style: preserve-3d;
-    position: relative;
-    cursor: pointer;
-    /* Efecto curvo: cada tarjeta se rota ligeramente en Y */
-    transform: rotateY(-15deg) scale(0.92);
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.5s ease;
+  flex-shrink: 0;
+  width: 320px;
+  height: 440px;
+  transform-style: preserve-3d;
+  position: relative;
+  cursor: pointer;
+  transform: rotateY(-12deg) scale(0.95); /* Inclinación 3D original estilizada */
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease;
 }
 
-/* Al hacer hover la tarjeta se endereza y agranda */
 .carousel-item.is-hovered {
-    z-index: 15;
+  z-index: 15;
 }
 
 .carousel-card {
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0, 212, 255, 0.15);
-    display: flex;
-    flex-direction: column;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    padding: 0;
-    transition: all 0.4s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  /* Sombra refinada para fondo claro */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  padding: 0;
+  transition: all 0.4s ease;
 }
 
 .carousel-item:hover .carousel-card {
-    border-color: var(--primary);
-    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 20px 50px rgba(0, 119, 255, 0.15);
 }
 
 .carousel-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: filter 0.4s ease;
-}
-
-.carousel-item.is-hovered .carousel-image {
-    filter: brightness(0.4);
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: filter 0.4s ease;
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .carousel-icon {
-    font-size: 32px;
-    margin: 20px 0 0 20px;
-    color: var(--primary);
-    transition: 0.3s ease;
+  font-size: 30px;
+  margin: 20px 0 0 20px;
+  color: var(--primary);
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .carousel-item.is-hovered .carousel-icon {
-    color: var(--secondary);
-    transform: scale(1.1);
+  color: var(--secondary); /* Cambia al coral magnético al hacer hover */
+  transform: scale(1.1);
 }
 
 .carousel-title {
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    margin: 10px 20px 0;
-    letter-spacing: 0.5px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main); /* Cambiado a oscuro */
+  margin: 15px 20px 0;
+  letter-spacing: -0.3px;
 }
 
 .carousel-text {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.5;
-    padding: 0 20px 20px;
-    flex-grow: 1;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding: 8px 20px 20px;
+  flex-grow: 1;
 }
 
+/* Capa superpuesta con los detalles del servicio al hacer hover */
 .carousel-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    background: linear-gradient(180deg, transparent 15%, rgba(0, 0, 0, 0.9) 65%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 25px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events: none;
-    z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    transparent 15%,
+    rgba(11, 11, 13, 0.98) 70%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 5;
 }
 
-/* Hover manejado por JS con clase */
-.carousel-item.is-hovered .carousel-overlay {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.carousel-item:hover .carousel-overlay,
+.carousel-item.active .carousel-overlay {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
+/* Cambia el color del icono al estar activo o en hover */
+.carousel-item:hover .carousel-icon,
+.carousel-item.active .carousel-icon {
+  color: var(--secondary) !important;
+  transform: scale(1.1);
+}
+
+/* Aplica el borde azul y la sombra premium a la tarjeta activa */
+.carousel-item:hover .carousel-card,
+.carousel-item.active .carousel-card {
+  border-color: var(--primary) !important;
+  box-shadow: 0 20px 50px rgba(0, 119, 255, 0.15) !important;
+}
 
 .overlay-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
 }
 
 .overlay-desc {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.5;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
 }
 
+/* Botón interno del carrusel para abrir el modal del servicio */
 .overlay-btn {
-    margin-top: 12px;
-    padding: 8px 22px;
-    border: 1px solid var(--primary);
-    border-radius: 25px;
-    background: transparent;
-    color: var(--primary);
-    font-size: 13px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    width: fit-content;
-    transition: background 0.3s ease, color 0.3s ease;
+  margin-top: 15px;
+  padding: 10px 24px;
+  border: 1px solid var(--primary);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.2s ease;
 }
 
 .overlay-btn:hover {
-    background: var(--primary);
-    color: var(--dark);
+  background: var(--primary);
+  color: var(--dark);
+  transform: scale(1.02);
 }
 
 /* ===== MODAL DE SERVICIO ===== */
 .service-modal-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(15px);
-    z-index: 3000;
-    justify-content: center;
-    align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-modal-backdrop.active {
-    display: flex;
+  display: flex;
 }
 
 .service-modal {
-    background: linear-gradient(145deg, rgba(20, 20, 30, 0.98), rgba(10, 10, 18, 0.98));
-    border: 1px solid var(--glass-border);
-    border-radius: 25px;
-    max-width: 550px;
-    width: 90%;
-    padding: 40px;
-    position: relative;
-    transform: scale(0.8) translateY(30px);
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: linear-gradient(
+    145deg,
+    rgba(20, 20, 30, 0.98),
+    rgba(10, 10, 18, 0.98)
+  );
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  max-width: 550px;
+  width: 90%;
+  padding: 40px;
+  position: relative;
+  transform: scale(0.8) translateY(30px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .service-modal-backdrop.active .service-modal {
-    transform: scale(1) translateY(0);
-    opacity: 1;
+  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 
 .service-modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 28px;
-    cursor: pointer;
-    transition: color 0.3s;
-    line-height: 1;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s;
+  line-height: 1;
 }
 
 .service-modal-close:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .service-modal-icon {
-    font-size: 40px;
-    color: var(--primary);
-    margin-bottom: 15px;
+  font-size: 40px;
+  color: var(--primary);
+  margin-bottom: 15px;
 }
 
 .service-modal-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 .service-modal-text {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
 }
 
 .service-modal-features {
-    list-style: none;
-    margin-top: 20px;
-    padding: 0;
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
 }
 
 .service-modal-features li {
-    padding: 8px 0;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .service-modal-features li i {
-    color: var(--primary);
-    font-size: 12px;
+  color: var(--primary);
+  font-size: 12px;
 }
 
 .services-page {
-    min-height: 100vh;
-    padding-bottom: 80px;
+  min-height: 100vh;
+  padding-bottom: 80px;
 }
 
 .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    margin-bottom: 50px;
-    text-align: center;
-    letter-spacing: 1px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 50px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .section-title span {
-    color: var(--primary);
+  color: var(--primary);
 }
 
-/* PORTAFOLIO */
-.portfolio-grid {
+/* ==========================================================================
+   PORTAFOLIO DE PROYECTOS (Alineado en Acordeón Flexbox Dinámico)
+   ========================================================================== */
+.portfolio-accordion {
+  display: flex; /* Alinea los proyectos en fila horizontal */
+  width: 100%;
+  height: 480px; /* Altura elástica para las columnas verticales */
+  gap: 15px; /* Separación delgada y elegante entre columnas */
+  margin-top: 50px;
+  padding: 10px 0;
+}
+
+.accordion-card {
+  position: relative;
+  flex: 1; /* Hace que todas las tarjetas midan lo mismo de forma simétrica */
+  border-radius: 24px; /* Esquinas perfectamente redondeadas */
+  overflow: hidden; /* Mantiene las imágenes dentro del marco */
+  background-color: #111215;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+
+  /* Esta transición cúbica emula el movimiento de suavizado premium */
+  transition:
+    flex 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Control del zoom y encuadre total de las miniaturas */
+.accordion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* EFECTO DE EXPANSIÓN MÁGICA */
+.accordion-card:hover {
+  flex: 3; /* Crece tres veces su tamaño original al pasar el cursor */
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.14);
+}
+
+.accordion-card:hover .accordion-img {
+  transform: scale(1.03); /* Zoom imperceptible a la imagen de fondo */
+}
+
+/* Capa de Información Integrada y Contraste de Texto */
+.accordion-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Degradado oscuro envolvente para que las letras blancas destaquen en fondo claro/oscuro */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.88) 85%
+  );
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Alinea los datos firmemente abajo */
+
+  /* Estado inicial: Oculto por defecto para evitar textos amontonados */
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  pointer-events: none;
+}
+
+/* Revelación sincronizada al desplegar el acordeón */
+.accordion-card:hover .accordion-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s; /* Espera el estiramiento elástico antes de mostrar el texto */
+}
+
+/* Tipografías del Portafolio */
+.accordion-info h3 {
+  color: #ffffff !important;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  white-space: nowrap; /* Bloquea saltos de línea molestos en la animación */
+}
+
+.accordion-info p {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+
+.accordion-info .project-category {
+  color: var(--primary) !important; /* Mantiene tu azul eléctrico estructural */
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO & PRESUPUESTO CON TERCER ESPACIO (Premium)
+   ========================================================================== */
+.contact-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
-    position: relative;
-    border-radius: 25px;
+    grid-template-columns: 1fr 1.2fr; /* Dos columnas arriba */
+    gap: 0;
+    margin-top: 50px;
+    background: #ffffff; /* Contenedor blanco unificado */
+    border-radius: 35px;
     overflow: hidden;
-    height: 380px;
-    background-color: #000000;
-    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+}
+
+/* Columna Izquierda: Imagen */
+.contact-info {
+    padding: 0;
     display: flex;
+    align-items: stretch;
     justify-content: center;
-    align-items: center;
-    transition: 0.4s ease;
+    background-color: #f5f6f9;
 }
 
-.project-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
-}
-
-.project-card img,
-.project-img {
-    width: 85%;
-    height: 85%;
-    object-fit: contain;
-    transition: 0.5s ease;
+.contact-info-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
-.project-card:hover img {
-    transform: scale(1.08);
-}
-
-.project-info {
-    position: absolute;
-    bottom: 0;
-    padding: 25px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 40%, transparent);
-    width: 100%;
-    opacity: 0;
-    transition: 0.4s;
-    z-index: 2;
-}
-
-.project-card:hover .project-info {
-    opacity: 1;
-}
-
-/* CONTACTO */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.contact-info {
-    padding: 40px;
+/* Columna Derecha: Formulario */
+.contact-form {
+    padding: 60px 50px;
     display: flex;
     flex-direction: column;
+    gap: 24px;
+    background: #fdfbfc;
     justify-content: center;
 }
 
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    text-decoration: none;
-    color: #fff;
-    transition: 0.4s;
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.info-item img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-.info-item:hover {
-    color: var(--primary);
-    transform: translateX(10px);
-}
-
-.contact-form {
-    padding: 40px;
+.form-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-left: 5px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    color: #fff;
+    background: #ffffff;
+    border: 2px solid #eef0f3;
+    padding: 16px 25px;
+    border-radius: 50px;
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
     outline: none;
-    transition: 0.3s;
-}
-
-.contact-form input:focus {
-    border-color: var(--primary);
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    justify-content: center;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form textarea {
+    border-radius: 24px;
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.08);
+}
+
+.contact-form .submit-btn {
+    background: var(--primary) !important;
+    color: white !important;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 10px;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-form .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+}
+
+/* 📥 NUEVO TERCER ESPACIO: Redes y Medios de Contacto en la Base */
+.contact-bottom {
+    grid-column: 1 / span 2; /* Cruza horizontalmente cubriendo ambas columnas */
+    background: #ffffff;
+    border-top: 2px solid #f4f6f9; /* Línea divisoria muy elegante */
+    padding: 30px 50px;
+    display: flex;
+    justify-content: cubic-bezier(0.16, 1, 0.3, 1);
+    justify-content: space-around; /* Distribuye tus redes simétricamente */
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.bottom-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #fafbfc; /* Efecto botón suave para cada red */
+}
+
+.bottom-info-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.bottom-info-item:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+    background: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.05);
+}
+
+.bottom-info-item:hover img {
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   RESPONSIVO MÓVILES
+   ========================================================================== */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        height: 220px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 40px 24px;
+    }
+    
+    .contact-bottom {
+        grid-column: auto; /* Desactiva la fusión de columnas en móvil */
+        flex-direction: column; /* Apila las redes verticalmente */
+        align-items: stretch;
+        padding: 30px 24px;
+    }
+    
+    .bottom-info-item {
+        justify-content: center;
+    }
+}
+
+/* MODAL GENERAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-    max-width: 90%;
-    max-height: 80%;
-    display: flex;
-    justify-content: center;
+  max-width: 90%;
+  max-height: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-video,
 .modal-img {
-    width: auto;
-    max-width: 100%;
-    max-height: 80vh;
-    border-radius: 15px;
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
 }
 
 .close-modal {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    color: #fff;
-    font-size: 50px;
-    cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES (Adaptación Impecable a Dispositivos móvil)
+   ========================================================================== */
 @media (max-width: 1024px) {
-    .carousel-item {
-        width: 280px;
-        height: 400px;
-    }
+  .carousel-item {
+    width: 280px;
+    height: 400px;
+  }
 
-    .carousel-container {
-        height: 450px;
-    }
+  .carousel-container {
+    height: 450px;
+  }
 }
 
 @media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
+  /* El acordeón se reorganiza verticalmente en tabletas y celulares para mejor control táctil */
+  .portfolio-accordion {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
 
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
+  .accordion-card {
+    height: 200px;
+    flex: none; /* Apaga el flex horizontal */
+  }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+  .accordion-card:hover {
+    flex: none;
+    transform: scale(1.02); /* Reemplaza expansión por sutil aumento en móvil */
+  }
 
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+  .accordion-info {
+    opacity: 1; /* Forzamos legibilidad fija en pantallas táctiles sin hover */
+    transform: translateY(0);
+  }
 
-    .navbar {
-        padding: 15px 20px;
-    }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
 
-    .nav-links li a {
-        margin-left: 15px;
-    }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
 
-    .carousel-container {
-        height: 400px;
-        margin: 40px 0;
-    }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
-    .carousel-item {
-        width: 240px;
-        height: 360px;
-    }
+  .navbar {
+    padding: 15px 20px;
+  }
 
-    .carousel-image {
-        height: 160px;
-    }
+  .nav-links li a {
+    margin-left: 15px;
+  }
 
-    .carousel-icon {
-        font-size: 28px;
-        margin: 15px 0 0 15px;
-    }
+  /* 1. Forzar a que cuando se agregue .active por JS, el overlay sea 100% visible */
+  .carousel-item.active .carousel-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    background: linear-gradient(
+      180deg,
+      rgba(11, 11, 13, 0.4) 0%,
+      rgba(11, 11, 13, 0.95) 70%
+    ) !important;
+    z-index: 10 !important;
+  }
 
-    .carousel-title {
-        font-size: 16px;
-        margin: 8px 15px 0;
-    }
+  /* 2. Ocultar los textos estáticos del fondo en la tarjeta activa 
+          para que no se encimen con los del menú desplegable */
+  .carousel-item.active .carousel-title,
+  .carousel-item.active .carousel-text {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
 
-    .carousel-text {
-        font-size: 12px;
-        padding: 0 15px 15px;
-    }
+  /* 3. Asegurar el contraste total de los textos internos del overlay al activarse */
+  .carousel-item.active .overlay-title {
+    color: #ffffff !important;
+    display: block !important;
+  }
+
+  .carousel-item.active .overlay-desc {
+    color: rgba(255, 255, 255, 0.9) !important;
+    display: block !important;
+  }
+
+  /* 4. Resaltar la tarjeta entera en móviles al darle tap */
+  .carousel-item.active .carousel-card {
+    border-color: var(--primary) !important;
+    box-shadow: 0 15px 35px rgba(0, 119, 255, 0.2) !important;
+  }
+
+  .carousel-item.active .carousel-icon {
+    color: var(--secondary) !important;
+    transform: scale(1.1);
+  }
+
+  .carousel-container {
+    height: 400px;
+    margin: 40px 0;
+  }
+
+  .carousel-item {
+    width: 240px;
+    height: 360px;
+  }
+
+  .carousel-image {
+    height: 160px;
+  }
+
+  .carousel-icon {
+    font-size: 28px;
+    margin: 15px 0 0 15px;
+  }
+
+  .carousel-title {
+    font-size: 16px;
+    margin: 8px 15px 0;
+  }
+
+  .carousel-text {
+    font-size: 12px;
+    padding: 0 15px 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    .carousel-container {
-        height: 320px;
-        margin: 30px 0;
-    }
+  .carousel-container {
+    height: 320px;
+    margin: 30px 0;
+  }
 
-    .carousel-item {
-        width: 200px;
-        height: 300px;
-    }
+  .carousel-item {
+    width: 200px;
+    height: 300px;
+  }
 
-    .carousel-image {
-        height: 130px;
-    }
+  .carousel-image {
+    height: 130px;
+  }
 
-    .carousel-icon {
-        font-size: 24px;
-        margin: 12px 0 0 12px;
-    }
+  .carousel-icon {
+    font-size: 24px;
+    margin: 12px 0 0 12px;
+  }
 
-    .carousel-title {
-        font-size: 14px;
-        margin: 6px 12px 0;
-    }
+  .carousel-title {
+    font-size: 14px;
+    margin: 6px 12px 0;
+  }
 
-    .carousel-text {
-        font-size: 11px;
-        padding: 0 12px 12px;
-    }
+  .carousel-text {
+    font-size: 11px;
+    padding: 0 12px 12px;
+  }
 
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
 
-    .logo {
-        font-size: 1rem;
-    }
+  .logo {
+    font-size: 1rem;
+  }
 
-    .nav-logo {
-        width: 60px;
-        height: 60px;
-    }
+  .nav-logo {
+    width: 60px;
+    height: 60px;
+  }
 }
