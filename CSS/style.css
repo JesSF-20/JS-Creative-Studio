@@ -1,45 +1,38 @@
 :root {
   /* 60% Dominante: Un blanco hueso con un sutil toque frío/pastel, ultra limpio */
   --dark: #f4f6f9;
-
   /* Textos Principales: Carbón profundo para una lectura perfecta y elegante */
   --text-main: #18191c;
-
   /* 30% Estructural: Tu azul eléctrico, ahora más nítido sobre el fondo claro */
   --primary: #0066ff;
-
   /* 10% Acento de Conversión: Coral vibrante para que los botones sigan siendo imanes de clics */
   --secondary: #ff5a5f;
-
   /* Glassmorphic para modo claro: Fondo blanco translúcido con sombra suave */
   --glass: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(255, 255, 255, 0.8);
   --text-muted: #575d65; /* Gris medio para descripciones */
-
   /* Nueva variable para tarjetas flotantes */
   --card-shadow: rgba(0, 102, 255, 0.06);
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
-body {
-  background-color: var(--dark);
-  color: var(--text-main); /* Cambiado a carbón profundo */
-  line-height: 1.6;
-  scroll-behavior: smooth;
+/* 1. TEXTURA GLOBAL: Se aplica a todo el cuerpo para que todos los apartados la compartan */
+body,
+.about-page {
+  background: url("../img/fondo.avif") center center / cover no-repeat fixed
+    #eef0f3;
+  color: var(--text-main);
+  font-family: "Poppins", sans-serif;
 }
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
 /* ==========================================================================
    NAVBAR (Menú de Navegación Premium)
    ========================================================================== */
@@ -56,23 +49,19 @@ body {
   z-index: 1000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil oscuro */
 }
-
 .logo-container {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .logo {
   font-weight: 800;
   letter-spacing: 1.5px;
   font-size: 1.3rem;
 }
-
 .logo span {
   color: var(--primary);
 }
-
 .nav-logo {
   width: 70px;
   height: 70px;
@@ -81,17 +70,14 @@ body {
   border: 2px solid var(--glass-border);
   transition: border-color 0.3s ease; /* Interacción suave al pasar el mouse por la navbar */
 }
-
 .navbar:hover .nav-logo {
   border-color: var(--primary);
 }
-
 .nav-links {
   display: flex;
   list-style: none;
   align-items: center;
 }
-
 .nav-links li a {
   color: #4a4a4a; /* Texto del menú más oscuro para que se lea */
   text-decoration: none;
@@ -99,11 +85,9 @@ body {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .nav-links li a:hover {
   color: var(--primary);
 }
-
 /* BOTÓN DE CONVERSIÓN: Diseñado para que resalte inmediatamente */
 .nav-btn {
   background: var(--secondary) !important; /* Usamos el Coral (10% de acento) */
@@ -116,13 +100,11 @@ body {
     transform 0.3s ease,
     box-shadow 0.3s ease !important;
 }
-
 /* Efecto hover: el botón se eleva sutilmente y brilla más, invitando al clic */
 .nav-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 90, 95, 0.4);
 }
-
 /* ==========================================================================
    HERO SECTION (Sección Principal de Impacto)
    ========================================================================== */
@@ -133,7 +115,6 @@ body {
   /* Un padding superior amplio (140px) evita que la barra fija tape tu título */
   padding: 140px 20px 80px;
 }
-
 .hero-container {
   display: grid;
   grid-template-columns: 1.2fr 1fr; /* El texto ocupa un poco más de espacio que la imagen */
@@ -142,14 +123,12 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .hero-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Alinea todo el texto limpiamente a la izquierda */
   text-align: left;
 }
-
 /* El Badge: Una pequeña etiqueta premium sobre el título */
 .badge {
   background: rgba(0, 119, 255, 0.1); /* Fondo azul muy suave y transparente */
@@ -163,7 +142,6 @@ body {
   font-weight: 600;
   margin-bottom: 20px;
 }
-
 /* El Título Principal: Diseñado para capturar la atención al instante */
 .hero h1 {
   font-size: clamp(
@@ -176,12 +154,10 @@ body {
   margin-bottom: 20px;
   letter-spacing: -0.5px; /* Junta un poco las letras para un estilo más editorial y moderno */
 }
-
 /* El truco de color en el H1: El azul destaca la palabra clave (ej. Tu Éxito o Tu Negocio) */
 .hero h1 span {
   color: var(--primary);
 }
-
 /* Descripción: Letra ligera y color suavizado para que no compita con el H1 */
 .hero-description {
   font-size: 1.1rem;
@@ -191,13 +167,11 @@ body {
   font-weight: 400; /* Subimos un poco el grosor a 400 para mejorar la lectura en pantallas claras */
   max-width: 600px;
 }
-
 .hero-image {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 /* Tu Imagen o Avatar de Presentación */
 .main-avatar {
   width: 100%;
@@ -210,12 +184,10 @@ body {
   border: 1px solid var(--glass-border);
   transition: transform 0.4s ease;
 }
-
 /* Efecto interactivo: la imagen floats levemente cuando el usuario pasa el mouse */
 .hero-image:hover .main-avatar {
   transform: translateY(-5px);
 }
-
 /* ==========================================================================
    SERVICIOS & GLASSMORPHISM (Efecto Cristal Premium)
    ========================================================================== */
@@ -225,7 +197,6 @@ body {
   gap: 30px;
   padding: 20px 0;
 }
-
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-border);
@@ -242,26 +213,22 @@ body {
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s ease;
 }
-
 .glass img {
   width: 100%;
   height: 210px;
   object-fit: cover;
   border-bottom: 1px solid var(--glass-border); /* Separa la imagen del texto limpiamente */
 }
-
 .glass h3,
 .glass p {
   padding: 0 24px; /* Más espacio interno para que el diseño respire */
 }
-
 .glass h3 {
   font-size: 1.25rem;
   margin-top: 22px;
   font-weight: 600;
   letter-spacing: -0.3px;
 }
-
 .glass p {
   margin-top: 10px;
   margin-bottom: 25px;
@@ -269,7 +236,6 @@ body {
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
 /* Efecto al pasar el cursor sobre la tarjeta de servicio */
 .glass:hover {
   border-color: rgba(
@@ -281,14 +247,12 @@ body {
   transform: translateY(-8px); /* Elevación elegante */
   box-shadow: 0 20px 40px rgba(0, 119, 255, 0.1); /* Resplandor azul muy fino en el fondo */
 }
-
 .glass i {
   margin-left: 24px;
   margin-top: 22px;
   font-size: 26px;
   color: var(--primary);
 }
-
 /* ==========================================================================
    CARRUSEL 3D CURVO ANIMADO (Optimizado para Fluidez)
    ========================================================================== */
@@ -302,7 +266,6 @@ body {
   overflow: hidden;
   position: relative;
 }
-
 /* Degradados laterales ultra profundos para ocultar los bordes del carrusel */
 .carousel-container::before,
 .carousel-container::after {
@@ -314,15 +277,10 @@ body {
   z-index: 20;
   pointer-events: none;
 }
-.carousel-container::before {
-  left: 0;
-  background: linear-gradient(to right, var(--dark) 0%, transparent 100%);
+.tu-contenedor-carrusel::before,
+.tu-contenedor-carrusel::after {
+  display: none !important; /* Esto remueve las capas blancas laterales si existen */
 }
-.carousel-container::after {
-  right: 0;
-  background: linear-gradient(to left, var(--dark) 0%, transparent 100%);
-}
-
 .carousel-track {
   display: flex;
   gap: 30px;
@@ -330,12 +288,10 @@ body {
   transform-style: preserve-3d;
   will-change: transform;
 }
-
 /* Pausa suave cuando el cliente inspecciona un servicio */
 .carousel-container:hover .carousel-track {
   animation-play-state: paused;
 }
-
 @keyframes scrollCarousel {
   0% {
     transform: translateX(0);
@@ -344,7 +300,6 @@ body {
     transform: translateX(-50%);
   }
 }
-
 .carousel-item {
   flex-shrink: 0;
   width: 320px;
@@ -357,11 +312,9 @@ body {
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.5s ease;
 }
-
 .carousel-item.is-hovered {
   z-index: 15;
 }
-
 .carousel-card {
   width: 100%;
   height: 100%;
@@ -378,12 +331,10 @@ body {
   padding: 0;
   transition: all 0.4s ease;
 }
-
 .carousel-item:hover .carousel-card {
   border-color: var(--primary);
   box-shadow: 0 20px 50px rgba(0, 119, 255, 0.15);
 }
-
 .carousel-image {
   width: 100%;
   height: 200px;
@@ -391,7 +342,6 @@ body {
   transition: filter 0.4s ease;
   border-bottom: 1px solid var(--glass-border);
 }
-
 .carousel-icon {
   font-size: 30px;
   margin: 20px 0 0 20px;
@@ -400,12 +350,10 @@ body {
     transform 0.3s ease,
     color 0.3s ease;
 }
-
 .carousel-item.is-hovered .carousel-icon {
   color: var(--secondary); /* Cambia al coral magnético al hacer hover */
   transform: scale(1.1);
 }
-
 .carousel-title {
   font-size: 1.15rem;
   font-weight: 600;
@@ -413,7 +361,6 @@ body {
   margin: 15px 20px 0;
   letter-spacing: -0.3px;
 }
-
 .carousel-text {
   font-size: 0.9rem;
   color: var(--text-muted);
@@ -421,7 +368,6 @@ body {
   padding: 8px 20px 20px;
   flex-grow: 1;
 }
-
 /* Capa superpuesta con los detalles del servicio al hacer hover */
 .carousel-overlay {
   position: absolute;
@@ -447,41 +393,35 @@ body {
   pointer-events: none;
   z-index: 5;
 }
-
 .carousel-item:hover .carousel-overlay,
 .carousel-item.active .carousel-overlay {
   opacity: 1 !important;
   transform: translateY(0) !important;
   pointer-events: auto !important;
 }
-
 /* Cambia el color del icono al estar activo o en hover */
 .carousel-item:hover .carousel-icon,
 .carousel-item.active .carousel-icon {
   color: var(--secondary) !important;
   transform: scale(1.1);
 }
-
 /* Aplica el borde azul y la sombra premium a la tarjeta activa */
 .carousel-item:hover .carousel-card,
 .carousel-item.active .carousel-card {
   border-color: var(--primary) !important;
   box-shadow: 0 20px 50px rgba(0, 119, 255, 0.15) !important;
 }
-
 .overlay-title {
   font-size: 22px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 8px;
 }
-
 .overlay-desc {
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
 }
-
 /* Botón interno del carrusel para abrir el modal del servicio */
 .overlay-btn {
   margin-top: 15px;
@@ -500,13 +440,11 @@ body {
     border-color 0.3s ease,
     transform 0.2s ease;
 }
-
 .overlay-btn:hover {
   background: var(--primary);
   color: var(--dark);
   transform: scale(1.02);
 }
-
 /* ===== MODAL DE SERVICIO ===== */
 .service-modal-backdrop {
   display: none;
@@ -521,11 +459,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .service-modal-backdrop.active {
   display: flex;
 }
-
 .service-modal {
   background: linear-gradient(
     145deg,
@@ -542,12 +478,10 @@ body {
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
 .service-modal-backdrop.active .service-modal {
   transform: scale(1) translateY(0);
   opacity: 1;
 }
-
 .service-modal-close {
   position: absolute;
   top: 15px;
@@ -560,36 +494,30 @@ body {
   transition: color 0.3s;
   line-height: 1;
 }
-
 .service-modal-close:hover {
   color: #fff;
 }
-
 .service-modal-icon {
   font-size: 40px;
   color: var(--primary);
   margin-bottom: 15px;
 }
-
 .service-modal-title {
   font-size: 24px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 15px;
 }
-
 .service-modal-text {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
 }
-
 .service-modal-features {
   list-style: none;
   margin-top: 20px;
   padding: 0;
 }
-
 .service-modal-features li {
   padding: 8px 0;
   color: rgba(255, 255, 255, 0.85);
@@ -599,17 +527,14 @@ body {
   align-items: center;
   gap: 10px;
 }
-
 .service-modal-features li i {
   color: var(--primary);
   font-size: 12px;
 }
-
 .services-page {
   min-height: 100vh;
   padding-bottom: 80px;
 }
-
 .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
@@ -617,11 +542,9 @@ body {
   text-align: center;
   letter-spacing: 1px;
 }
-
 .section-title span {
   color: var(--primary);
 }
-
 /* ==========================================================================
    PORTAFOLIO DE PROYECTOS (Alineado en Acordeón Flexbox Dinámico)
    ========================================================================== */
@@ -633,7 +556,6 @@ body {
   margin-top: 50px;
   padding: 10px 0;
 }
-
 .accordion-card {
   position: relative;
   flex: 1; /* Hace que todas las tarjetas midan lo mismo de forma simétrica */
@@ -642,14 +564,12 @@ body {
   background-color: #111215;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   cursor: pointer;
-
   /* Esta transición cúbica emula el movimiento de suavizado premium */
   transition:
     flex 0.6s cubic-bezier(0.25, 1, 0.5, 1),
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 /* Control del zoom y encuadre total de las miniaturas */
 .accordion-img {
   width: 100%;
@@ -658,17 +578,14 @@ body {
   display: block;
   transition: transform 0.6s ease;
 }
-
 /* EFECTO DE EXPANSIÓN MÁGICA */
 .accordion-card:hover {
   flex: 3; /* Crece tres veces su tamaño original al pasar el cursor */
   box-shadow: 0 20px 40px rgba(0, 102, 255, 0.14);
 }
-
 .accordion-card:hover .accordion-img {
   transform: scale(1.03); /* Zoom imperceptible a la imagen de fondo */
 }
-
 /* Capa de Información Integrada y Contraste de Texto */
 .accordion-info {
   position: absolute;
@@ -686,7 +603,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Alinea los datos firmemente abajo */
-
   /* Estado inicial: Oculto por defecto para evitar textos amontonados */
   opacity: 0;
   transform: translateY(15px);
@@ -695,14 +611,12 @@ body {
     transform 0.4s ease;
   pointer-events: none;
 }
-
 /* Revelación sincronizada al desplegar el acordeón */
 .accordion-card:hover .accordion-info {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.15s; /* Espera el estiramiento elástico antes de mostrar el texto */
 }
-
 /* Tipografías del Portafolio */
 .accordion-info h3 {
   color: #ffffff !important;
@@ -711,13 +625,11 @@ body {
   margin-bottom: 4px;
   white-space: nowrap; /* Bloquea saltos de línea molestos en la animación */
 }
-
 .accordion-info p {
   color: rgba(255, 255, 255, 0.85) !important;
   font-size: 0.88rem;
   font-weight: 300;
 }
-
 .accordion-info .project-category {
   color: var(--primary) !important; /* Mantiene tu azul eléctrico estructural */
   font-size: 0.75rem;
@@ -726,190 +638,172 @@ body {
   letter-spacing: 1px;
   margin-bottom: 2px;
 }
-
 /* ==========================================================================
    SECCIÓN CONTACTO & PRESUPUESTO CON TERCER ESPACIO (Premium)
    ========================================================================== */
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Dos columnas arriba */
-    gap: 0;
-    margin-top: 50px;
-    background: #ffffff; /* Contenedor blanco unificado */
-    border-radius: 35px;
-    overflow: hidden;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Dos columnas arriba */
+  gap: 0;
+  margin-top: 50px;
+  background: #ffffff; /* Contenedor blanco unificado */
+  border-radius: 35px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
 }
-
 /* Columna Izquierda: Imagen */
 .contact-info {
-    padding: 0;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    background-color: #f5f6f9;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: #f5f6f9;
 }
-
 .contact-info-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
 /* Columna Derecha: Formulario */
 .contact-form {
-    padding: 60px 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    background: #fdfbfc;
-    justify-content: center;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #fdfbfc;
+  justify-content: center;
 }
-
 .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
-
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-
 .form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-left: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-left: 5px;
 }
-
 .contact-form input,
 .contact-form textarea {
-    background: #ffffff;
-    border: 2px solid #eef0f3;
-    padding: 16px 25px;
-    border-radius: 50px;
-    color: var(--text-main);
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    outline: none;
-    width: 100%;
-    transition: border-color 0.3s, box-shadow 0.3s;
+  background: #ffffff;
+  border: 2px solid #eef0f3;
+  padding: 16px 25px;
+  border-radius: 50px;
+  color: var(--text-main);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
-
 .contact-form textarea {
-    border-radius: 24px;
-    min-height: 130px;
-    resize: vertical;
+  border-radius: 24px;
+  min-height: 130px;
+  resize: vertical;
 }
-
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.08);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.08);
 }
-
 .contact-form .submit-btn {
-    background: var(--primary) !important;
-    color: white !important;
-    padding: 16px 40px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    width: fit-content;
-    margin-top: 10px;
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.15);
-    transition: transform 0.3s, box-shadow 0.3s;
+  background: var(--primary) !important;
+  color: white !important;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 10px;
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.15);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
-
 .contact-form .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
 }
-
 /* 📥 NUEVO TERCER ESPACIO: Redes y Medios de Contacto en la Base */
 .contact-bottom {
-    grid-column: 1 / span 2; /* Cruza horizontalmente cubriendo ambas columnas */
-    background: #ffffff;
-    border-top: 2px solid #f4f6f9; /* Línea divisoria muy elegante */
-    padding: 30px 50px;
-    display: flex;
-    justify-content: cubic-bezier(0.16, 1, 0.3, 1);
-    justify-content: space-around; /* Distribuye tus redes simétricamente */
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  grid-column: 1 / span 2; /* Cruza horizontalmente cubriendo ambas columnas */
+  background: #ffffff;
+  border-top: 2px solid #f4f6f9; /* Línea divisoria muy elegante */
+  padding: 30px 50px;
+  display: flex;
+  justify-content: cubic-bezier(0.16, 1, 0.3, 1);
+  justify-content: space-around; /* Distribuye tus redes simétricamente */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
-
 .bottom-info-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: #fafbfc; /* Efecto botón suave para cada red */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: #fafbfc; /* Efecto botón suave para cada red */
 }
-
 .bottom-info-item img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
-
 .bottom-info-item:hover {
-    color: var(--primary);
-    transform: translateY(-3px);
-    background: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.05);
+  color: var(--primary);
+  transform: translateY(-3px);
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 102, 255, 0.05);
 }
-
 .bottom-info-item:hover img {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 /* ==========================================================================
    RESPONSIVO MÓVILES
    ========================================================================== */
 @media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-info {
-        height: 220px;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-form {
-        padding: 40px 24px;
-    }
-    
-    .contact-bottom {
-        grid-column: auto; /* Desactiva la fusión de columnas en móvil */
-        flex-direction: column; /* Apila las redes verticalmente */
-        align-items: stretch;
-        padding: 30px 24px;
-    }
-    
-    .bottom-info-item {
-        justify-content: center;
-    }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .contact-info {
+    height: 220px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-form {
+    padding: 40px 24px;
+  }
+  .contact-bottom {
+    grid-column: auto; /* Desactiva la fusión de columnas en móvil */
+    flex-direction: column; /* Apila las redes verticalmente */
+    align-items: stretch;
+    padding: 30px 24px;
+  }
+  .bottom-info-item {
+    justify-content: center;
+  }
 }
-
 /* MODAL GENERAL */
 .modal {
   display: none;
@@ -924,14 +818,12 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   max-width: 90%;
   max-height: 80%;
   display: flex;
   justify-content: center;
 }
-
 .modal-video,
 .modal-img {
   width: auto;
@@ -940,7 +832,6 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
 }
-
 .close-modal {
   position: absolute;
   top: 30px;
@@ -949,7 +840,6 @@ body {
   font-size: 50px;
   cursor: pointer;
 }
-
 /* ==========================================================================
    RESPONSIVE MEDIA QUERIES (Adaptación Impecable a Dispositivos móvil)
    ========================================================================== */
@@ -958,12 +848,12 @@ body {
     width: 280px;
     height: 400px;
   }
-
   .carousel-container {
-    height: 450px;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important; /* Por si acaso tiene una sombra ligera que cree ese recuadro */
   }
 }
-
 @media (max-width: 768px) {
   /* El acordeón se reorganiza verticalmente en tabletas y celulares para mejor control táctil */
   .portfolio-accordion {
@@ -971,43 +861,34 @@ body {
     height: auto;
     gap: 20px;
   }
-
   .accordion-card {
     height: 200px;
     flex: none; /* Apaga el flex horizontal */
   }
-
   .accordion-card:hover {
     flex: none;
     transform: scale(1.02); /* Reemplaza expansión por sutil aumento en móvil */
   }
-
   .accordion-info {
     opacity: 1; /* Forzamos legibilidad fija en pantallas táctiles sin hover */
     transform: translateY(0);
   }
-
   .contact-wrapper {
     grid-template-columns: 1fr;
   }
-
   .hero h1 {
     font-size: 2.5rem;
   }
-
   .hero-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-
   .navbar {
     padding: 15px 20px;
   }
-
   .nav-links li a {
     margin-left: 15px;
   }
-
   /* 1. Forzar a que cuando se agregue .active por JS, el overlay sea 100% visible */
   .carousel-item.active .carousel-overlay {
     opacity: 1 !important;
@@ -1020,7 +901,6 @@ body {
     ) !important;
     z-index: 10 !important;
   }
-
   /* 2. Ocultar los textos estáticos del fondo en la tarjeta activa 
           para que no se encimen con los del menú desplegable */
   .carousel-item.active .carousel-title,
@@ -1028,100 +908,1688 @@ body {
     opacity: 0 !important;
     visibility: hidden !important;
   }
-
   /* 3. Asegurar el contraste total de los textos internos del overlay al activarse */
   .carousel-item.active .overlay-title {
     color: #ffffff !important;
     display: block !important;
   }
-
   .carousel-item.active .overlay-desc {
     color: rgba(255, 255, 255, 0.9) !important;
     display: block !important;
   }
-
   /* 4. Resaltar la tarjeta entera en móviles al darle tap */
   .carousel-item.active .carousel-card {
     border-color: var(--primary) !important;
     box-shadow: 0 15px 35px rgba(0, 119, 255, 0.2) !important;
   }
-
   .carousel-item.active .carousel-icon {
     color: var(--secondary) !important;
     transform: scale(1.1);
   }
-
   .carousel-container {
     height: 400px;
     margin: 40px 0;
   }
-
   .carousel-item {
     width: 240px;
     height: 360px;
   }
-
   .carousel-image {
     height: 160px;
   }
-
   .carousel-icon {
     font-size: 28px;
     margin: 15px 0 0 15px;
   }
-
   .carousel-title {
     font-size: 16px;
     margin: 8px 15px 0;
   }
-
   .carousel-text {
     font-size: 12px;
     padding: 0 15px 15px;
   }
 }
-
 @media (max-width: 480px) {
   .carousel-container {
     height: 320px;
     margin: 30px 0;
   }
-
   .carousel-item {
     width: 200px;
     height: 300px;
   }
-
   .carousel-image {
     height: 130px;
   }
-
   .carousel-icon {
     font-size: 24px;
     margin: 12px 0 0 12px;
   }
-
   .carousel-title {
     font-size: 14px;
     margin: 6px 12px 0;
   }
-
   .carousel-text {
     font-size: 11px;
     padding: 0 12px 12px;
   }
-
   .section-title {
     font-size: 1.8rem;
     margin-bottom: 30px;
   }
-
   .logo {
     font-size: 1rem;
   }
-
   .nav-logo {
     width: 60px;
     height: 60px;
   }
+}
+/* ==========================================================================
+   DISEÑO EVOLUCIONADO ULTRA PREMIUM: SPLIT SCREEN INTERACTIVO
+   ========================================================================== */
+body,
+.about-page {
+  background: url("../img/fondo.avif") center center / cover no-repeat fixed
+    #eef0f3;
+  color: var(--text-main);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+/* Contenedor principal con más espacio y perspectiva */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 680px; /* Cambiamos height por min-height para que crezca si el contenido lo requiere */
+  height: auto; /* Permite flexibilidad total */
+  width: 100%;
+  max-width: 1250px;
+  margin: 40px auto 0 auto;
+  padding: 0 20px;
+  perspective: 1000px;
+  margin-bottom: 100px; /* Empuja con fuerza el siguiente párrafo para que respire */
+}
+/* Lado Izquierdo: El escenario de tu silueta */
+.split-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  background: transparent;
+  position: relative;
+  height: 100%;
+  padding: 20px;
+}
+/* EFECTO POP: Tu imagen más grande y con animación de respiración sutil */
+.split-profile-img {
+  max-width: 150%;
+  height: 90%;
+  object-fit: contain;
+  display: block;
+  z-index: 3;
+  transition:
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.5s ease;
+  filter: drop-shadow(20px 25px 40px rgba(0, 0, 0, 0.07));
+}
+/* Al pasar el cursor sobre la sección, tu foto interactúa ganando presencia */
+.hero-split:hover .split-profile-img {
+  transform: scale(1.03) translateY(-5px);
+  filter: drop-shadow(
+    25px 30px 50px rgba(0, 102, 255, 0.12)
+  ); /* Sombra azulada sutil */
+}
+/* Contenedor Derecho */
+.split-pattern-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 40px;
+}
+.right-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 100%;
+  max-width: 550px;
+}
+/* CRISTALOGRAFÍA PREMIUM (Glassmorphism Pro) */
+/* Contenedor principal con la barra azul a la izquierda */
+.impact-box {
+  position: relative; /* Crucial para que la comilla gigante flote adentro */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Fondo sutil para que contraste con la textura */
+  border-left: 4px solid var(--primary); /* La línea azul vertical de la izquierda */
+  padding: 30px 40px 30px 45px; /* Espaciado interno generoso */
+  border-radius: 0 24px 24px 0; /* Curva elegante en las esquinas derechas */
+  margin: 40px 0;
+  overflow: hidden; /* Evita que la comilla gigante se salga del recuadro */
+}
+/* 🎯 Las comillas gigantes y transparentes */
+.quote-icon {
+  position: absolute;
+  top: -30px; /* La subimos para que solo se asiente la mitad superior */
+  left: 20px; /* Alineación respecto a la línea azul */
+  font-family: "Montserrat", Georgia, serif;
+  font-size: 10rem; /* ¡Tamaño masivo e imponente! */
+  font-weight: 900;
+  color: var(--primary); /* Tu azul eléctrico de marca */
+  opacity: 0.5; /* Ultra transparente para que actúe como marca de agua de fondo */
+  line-height: 1;
+  pointer-events: none; /* No interfiere si el usuario quiere seleccionar el texto */
+  user-select: none;
+}
+/* Estilo para el párrafo de la frase */
+.quote-text {
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  z-index: 2; /* Pone el texto por encima de la comilla transparente */
+}
+/* Resalte azul para "construir el puente digital" */
+.quote-text strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+/* Responsivo: Ajustes dinámicos para celulares */
+@media (max-width: 768px) {
+  .impact-box {
+    padding: 25px 20px 25px 25px;
+  }
+  .quote-icon {
+    font-size: 7rem;
+    top: -15px;
+  }
+  .quote-text {
+    font-size: 0.95rem;
+  }
+}
+/* ==========================================================================
+   SECCIÓN: BADGES ASIMÉTRICOS CON COMPETENCIAS Y OBJETIVO
+   ========================================================================== */
+/* Contenedor de ambos cuadros */
+.hero-badges {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+}
+/* Estilo base de cada tarjeta (Glassmorphism) */
+.badge-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 25px 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.015);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+/* El segundo cuadro desalineado para romper la monotonía */
+.badge-item:nth-child(2) {
+  margin-top: 15px;
+}
+/* Animación Hover para las tarjetas */
+.badge-item:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0, 102, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 102, 255, 0.04);
+}
+/* Cabecera interna del cuadro (Título + Icono) */
+.badge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+/* Títulos de los cuadros en Mayúsculas */
+.badge-number {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+/* Icono principal de la cabecera */
+.tech-icon {
+  font-size: 1.3rem;
+  color: rgba(0, 102, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.badge-item:hover .tech-icon {
+  color: var(--primary);
+  transform: scale(1.15) rotate(5deg);
+}
+/* Texto del objetivo personal */
+.badge-label {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-weight: 500;
+  text-align: left;
+  display: block;
+}
+/* ==========================================================================
+   NUEVO: LISTA DE COMPETENCIAS CON ICONOS
+   ========================================================================== */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Un poco más de separación vertical para que no se junte */
+  text-align: left;
+}
+.skills-list li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start; /* ¡CLAVE! Alinea el icono arriba, el texto largo se queda a la derecha en su columna */
+  gap: 12px;
+  line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+.skills-list li i {
+  font-size: 0.9rem;
+  color: var(--primary);
+  width: 20px; /* Espacio fijo que actúa como columna para el icono */
+  min-width: 20px; /* Evita que el icono se encoja si el texto es muy largo */
+  text-align: center;
+  margin-top: 3px; /* Centra perfectamente el icono con la primera línea de texto */
+}
+split-pattern-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  height: 100%;
+}
+/* Efecto de desplazamiento sutil en la lista al hacer hover */
+.core-skills-box:hover .skills-list li {
+  transform: translateX(3px);
+  color: var(--text-main);
+}
+/* ==========================================================================
+   RESPONSIVE PARA PANTALLAS MÓVILES (BADGES)
+   ========================================================================== */
+@media (max-width: 950px) {
+  .hero-badges {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .badge-item:nth-child(2) {
+    margin-top: 0;
+  }
+}
+/* ==========================================================================
+   NUEVA SECCIÓN: BIOGRAFÍA EDITORIAL (MÁXIMO DISEÑO Y FORMATO)
+   ========================================================================== */
+.bio-editorial-section {
+  width: 100%;
+  max-width: 1250px;
+  margin: 80px auto 120px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+/* Rejilla limpia de dos columnas */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+/* Estilo para la columna de introducción (Izquierda) */
+.bio-intro-column h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-main);
+  letter-spacing: -1px;
+  margin: 0;
+  text-align: left;
+}
+/* Destacados tipográficos */
+.highlight-name {
+  color: var(--text-main);
+  position: relative;
+  display: inline-block;
+}
+.highlight-studio {
+  color: var(--primary);
+  font-weight: 900;
+}
+/* Estilo para la columna de lectura (Derecha) */
+.bio-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+  border-left: 3px solid rgba(0, 102, 255, 0.15);
+  padding-left: 30px;
+}
+/* Primer párrafo destacado */
+.bio-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+/* Párrafos secundarios */
+.bio-text-column p:not(.bio-lead) {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 400;
+}
+/* Adaptación responsiva para la Biografía */
+@media (max-width: 900px) {
+  .bio-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .bio-intro-column h2 {
+    font-size: 1.8rem;
+  }
+  .bio-text-column {
+    border-left: none;
+    border-top: 2px solid rgba(0, 102, 255, 0.1);
+    padding-left: 0;
+    padding-top: 25px;
+  }
+}
+/* ==========================================================================
+   DISEÑO DE DIVISOR EDITORIAL (SUAVIZADO DE ESPACIOS)
+   ========================================================================== */
+.hero-split {
+  margin-bottom: 40px !important;
+}
+.bio-editorial-section {
+  margin-top: 40px !important;
+}
+/* Contenedor del Divisor */
+.editorial-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 40px;
+  gap: 20px;
+  opacity: 0.7;
+}
+.separator-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 102, 255, 0.25) 50%,
+    transparent
+  );
+}
+.separator-text-node {
+  font-family: "Montserrat", "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  padding: 8px 22px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.separator-text-node:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 102, 255, 0.18);
+  background: #ffffff;
+}
+.editorial-separator.text-separator {
+  max-width: 1150px;
+  margin: 40px auto;
+}
+@media (max-width: 768px) {
+  .editorial-separator {
+    margin: 15px auto;
+    padding: 0 20px;
+  }
+}
+/* ==========================================================================
+   BLOQUE DE ACCIÓN Y MÉTRICAS (EQUILIBRIO DE COLUMNA IZQUIERDA)
+   ========================================================================== */
+.bio-action-block {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  max-width: 400px;
+}
+.bio-stats {
+  display: flex;
+  gap: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 25px;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.stat-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.bio-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background: #111111;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.bio-cta-btn i {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+.bio-cta-btn:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.2);
+}
+.bio-cta-btn:hover i {
+  transform: translateX(5px);
+}
+@media (max-width: 900px) {
+  .bio-action-block {
+    margin-top: 30px;
+    max-width: 100%;
+  }
+  .bio-stats {
+    justify-content: flex-start;
+  }
+}
+/* ==========================================================================
+   SECCIÓN: MI ARSENAL DIGITAL (¡SÁCADA DEL BUCLE GLOBAL!)
+   ========================================================================== */
+.arsenal-section {
+  margin-top: 60px;
+  width: 100%;
+  text-align: left;
+}
+.arsenal-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #671ac0;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+.arsenal-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+.arsenal-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 30px 20px; /* 30px de separación entre filas (arriba/abajo) y 20px entre columnas */
+  width: 100%;
+  max-width: 440px; /* Le damos un poco más de ancho máximo total para albergar iconos más grandes */
+  margin-top: 25px;
+}
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* Aumentamos de 8px a 12px para empujar el texto hacia abajo */
+}
+.tech-icon-wrapper {
+  width: 90px !important; /* Escalados a 75px para mayor impacto visual */
+  height: 90px !important; /* Escalados a 75px para mayor impacto visual */
+  background-color: #ffffff;
+  border-radius: 20px; /* Suavizamos las esquinas un poco más proporcional al tamaño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04); /* Sombra sutilmente más amplia */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  padding: 14px; /* Mantiene el margen interno del logo */
+  overflow: hidden;
+}
+.tech-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.tech-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #555555;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.2px; /* Le da un look más editorial */
+}
+.tech-card:hover .tech-icon-wrapper {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+/* Responsivo exclusivo del Arsenal */
+@media (max-width: 480px) {
+  .arsenal-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .tech-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+}
+/* ==========================================================================
+   ARQUITECTURA BENTO COMPLETAMENTE AISLADA (CLASES ÚNICAS)
+   ========================================================================== */
+.how-work-bento-unique {
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 90px auto !important;
+  padding: 0 25px !important;
+  box-sizing: border-box !important;
+}
+/*==================================================
+HEADER PREMIUM
+==================================================*/
+.work-header-premium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+.work-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  border-radius: 100px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+.work-badge span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #58c4ff;
+  box-shadow: 0 0 18px rgba(88, 196, 255, 0.8);
+}
+.work-badge p {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+.work-title-bento-unique {
+  font-size: 3.8rem !important;
+  font-weight: 900 !important;
+  line-height: 1.05 !important;
+  text-align: center !important;
+  margin-bottom: 20px !important;
+  letter-spacing: -2px !important;
+  color: #111 !important;
+}
+.work-title-bento-unique span {
+  display: block;
+  background: linear-gradient(90deg, #4e8ef7, #62d5c8, #ffc857);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.work-description {
+  max-width: 720px;
+  text-align: center;
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 35px;
+}
+.work-divider-premium {
+  width: 220px;
+  height: 5px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #4e8ef7, #62d5c8, #ffc857);
+  box-shadow: 0 10px 25px rgba(98, 213, 200, 0.35);
+}
+/*======================================
+HEADER PREMIUM
+======================================*/
+.work-header {
+  position: relative;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.work-icon {
+  font-size: 7rem;
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  color: #ffffff;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.work-title-bento-unique {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem !important;
+  margin-bottom: 18px !important;
+}
+.work-subtitle {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: auto;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+.work-divider {
+  width: 220px;
+  height: 4px;
+  margin: 35px auto;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #8ec5fc, #b6f3d8, #ffe6aa);
+}
+.work-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  margin-top: 25px;
+}
+.work-steps span {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: white;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+.work-steps span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 35px;
+  height: 3px;
+  background: #d9d9d9;
+  transform: translateY(-50%);
+}
+.work-title-bento-unique {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 2.6rem !important;
+  font-weight: 800 !important;
+  color: #111 !important;
+  margin-bottom: 55px !important;
+  text-align: center !important;
+  letter-spacing: -0.5px !important;
+}
+.grid-bento-unique {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 28px !important;
+}
+/*==========================
+TARJETA
+==========================*/
+.card-unique {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+  height: 420px !important;
+  padding: 30px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  transition: 0.45s !important;
+  isolation: isolate !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+}
+/*==========================
+COLORES
+==========================*/
+.bento-blue {
+  background: linear-gradient(135deg, #dcebff, #bfdcff) !important;
+}
+.bento-coral {
+  background: linear-gradient(135deg, #ffe7dc, #ffd4c6) !important;
+}
+.bento-mint {
+  background: linear-gradient(135deg, #e2fbf2, #cef5e6) !important;
+}
+.bento-yellow {
+  background: linear-gradient(135deg, #fff7d8, #ffedba) !important;
+}
+/*==========================
+IMAGEN COMO FONDO
+==========================*/
+.wrapper-img-unique {
+  position: absolute !important;
+  inset: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+.wrapper-img-unique img {
+  position: absolute !important;
+  bottom: -20px !important;
+  right: -35px !important;
+  width: 95% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  opacity: 0.97 !important;
+  transition: 0.45s !important;
+  filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.16)) !important;
+}
+/*==========================
+DEGRADADO
+==========================*/
+.card-unique::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.75) 25%,
+    rgba(255, 255, 255, 0.2) 55%,
+    rgba(255, 255, 255, 0) 100%
+  ) !important;
+  z-index: 2 !important;
+}
+.card-unique::after {
+  content: "" !important;
+  position: absolute !important;
+  width: 260px !important;
+  height: 260px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  top: -100px !important;
+  right: -70px !important;
+  filter: blur(55px) !important;
+  z-index: 2 !important;
+}
+/*==========================
+TEXTOS
+==========================*/
+.num-unique,
+.card-unique h3,
+.card-unique p {
+  position: relative !important;
+  z-index: 20 !important;
+}
+.num-unique {
+  width: 42px !important;
+  height: 42px !important;
+  background: #fff !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  color: #666 !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08) !important;
+}
+.card-unique h3 {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 15px !important;
+  color: #111 !important;
+  max-width: 180px !important;
+}
+.card-unique p {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  color: #555 !important;
+  max-width: 200px !important;
+}
+/*==========================
+HOVER
+==========================*/
+.card-unique:hover {
+  transform: translateY(-12px) scale(1.03) !important;
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.12) !important;
+}
+.card-unique:hover img {
+  transform: scale(1.08) rotate(-3deg) translateY(-10px) !important;
+}
+@media (max-width: 768px) {
+  .work-title-bento-unique {
+    font-size: 2.6rem !important;
+  }
+  .work-description {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+  .work-divider-premium {
+    width: 140px;
+  }
+}
+/*==================================================
+        EXPERIENCIA DIGITAL
+        JS Creative Studio
+==================================================*/
+.exp-section{
+    position:relative;
+    padding: 100px 0 120px;
+    overflow:hidden;
+    width:100%;
+    padding:120px 0;
+    background:#F7F3EC;
+}
+.exp-container{
+    max-width:1280px;
+    margin:auto;
+    padding:0 40px;
+    display:grid;
+    grid-template-columns:46% 54%;
+    align-items:center;
+    gap:70px;
+    position:relative;
+    z-index:2;
+}
+/*=========================================
+        FONDOS DECORATIVOS
+=========================================*/
+.exp-bg-circle{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.28;
+    pointer-events:none;
+}
+.exp-bg-1{
+    width:520px;
+    height:520px;
+    background:#DDEEFF;
+    left:-220px;
+    top:120px;
+}
+.exp-bg-2{
+    width:430px;
+    height:430px;
+    background:#FFF1CC;
+    right:-180px;
+    bottom:80px;
+}
+.bg-blur{
+    position:absolute;
+    width:550px;
+    height:550px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:.35;
+    z-index:0;
+}
+.bg1{
+    background:#4E7EFF;
+    top:-180px;
+    left:-150px;
+}
+.bg2{
+    background:#33D49D;
+    bottom:-180px;
+    right:-120px;
+}
+.bg-grid{
+    position:absolute;
+    width:120px;
+    height:120px;
+    background-image:
+    radial-gradient(
+    #8AA9FF 1.8px,
+    transparent 1.8px);
+    background-size:18px 18px;
+    opacity:.35;
+    left:65%;
+    top:35%;
+}
+.grid2{
+    width:90px;
+    height:90px;
+    left:55%;
+    bottom:18%;
+}
+.shape{
+position:absolute;
+}
+.circle{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#4D84FF;
+right:90px;
+top:160px;
+}
+.cross{
+width:18px;
+height:18px;
+left:62%;
+bottom:120px;
+}
+.cross::before,
+.cross::after{
+content:"";
+position:absolute;
+background:#6B8FFF;
+}
+.cross::before{
+width:18px;
+height:2px;
+top:8px;
+}
+.cross::after{
+width:2px;
+height:18px;
+left:8px;
+}
+.cross2{
+left:83%;
+top:130px;
+transform:scale(.8);
+}
+/*=========================================
+            COLUMNA IZQUIERDA
+=========================================*/
+.exp-left{
+    position:relative;
+    z-index:5;
+    max-width: 800px;
+}
+.exp-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 22px;
+    border-radius:60px;
+    background:#fff;
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.08);
+    margin-bottom:28px;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#444;
+}
+.badge-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#3B82F6;
+}
+.exp-title{
+    font-size: clamp(3.8rem, 7vw, 3.8rem);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    max-width:700px;
+    line-height:1.22;
+    letter-spacing:-2px;
+    margin-bottom:45px;
+}
+.exp-title span{
+    display:block;
+    background:linear-gradient(
+    90deg,
+    #3B82F6,
+    #6C63FF,
+    #22C55E);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    font-weight: 600;
+    max-width: 750px;
+}
+.exp-description{
+    font-size:1.08rem;
+    line-height:1.9;
+    color:#666;
+    max-width:580px;
+    margin-bottom:35px;
+    font-family:'Poppins',sans-serif;
+}
+.exp-divider{
+    width:180px;
+    height:5px;
+    border-radius:50px;
+    background:linear-gradient(
+    90deg,
+    #3B82F6,
+    #6C63FF,
+    #22C55E);
+    margin-bottom:45px;
+}
+/*==================================================
+            TARJETAS DE BENEFICIOS
+==================================================*/
+.exp-card{
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+    gap:22px;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.45);
+    padding:22px 28px;
+    border-radius:24px;
+    margin-bottom:18px;
+    transition:.45s ease;
+    overflow:hidden;
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.05);
+}
+/* Barra lateral */
+.exp-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:5px;
+    height:0;
+    border-radius:20px;
+    background:linear-gradient(
+    180deg,
+    #3B82F6,
+    #6C63FF,
+    #22C55E);
+    transition:.45s;
+}
+/* Hover */
+.exp-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+    0 30px 55px rgba(0,0,0,.10);
+}
+.exp-card:hover::before{
+    height:100%;
+}
+/* Tarjeta destacada */
+.exp-card.featured{
+    background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.95),
+    rgba(241,246,255,.95));
+    border:1px solid rgba(59,130,246,.12);
+}
+/*=========================================
+                ICONOS
+=========================================*/
+.exp-icon{
+    width:58px;
+    height:58px;
+    min-width:70px;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    color:#fff;
+    transition:.35s;
+}
+/* Hover del icono */
+.exp-card:hover .exp-icon{
+    transform:scale(1.12) rotate(-6deg);
+}
+/* Colores */
+.exp-icon.purple{
+    background:linear-gradient(
+    135deg,
+    #7C5CFC,
+    #5B8EFF);
+}
+.exp-icon.blue{
+    background:linear-gradient(
+    135deg,
+    #3B82F6,
+    #06B6D4);
+}
+.exp-icon.green{
+    background:linear-gradient(
+    135deg,
+    #10B981,
+    #34D399);
+}
+.exp-icon.orange{
+    background:linear-gradient(
+    135deg,
+    #F59E0B,
+    #FB923C);
+}
+/*=========================================
+                TEXTO
+=========================================*/
+.exp-info{
+    flex:1;
+}
+.exp-info h3{
+    margin:0 0 10px;
+    font-size:1.18rem;
+    font-weight:700;
+    color:#111;
+    font-family:'Montserrat',sans-serif;
+}
+.exp-info p{
+    margin:0;
+    color:#666;
+    line-height:1.7;
+    font-size:.96rem;
+    font-family:'Poppins',sans-serif;
+}
+/*=========================================
+            FLECHA PREMIUM
+=========================================*/
+.exp-arrow{
+    position:absolute;
+    right:26px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:1rem;
+    color:#3B82F6;
+    opacity:0;
+    transition:.35s;
+}
+.exp-card.featured:hover .exp-arrow{
+    opacity:1;
+    right:20px;
+}
+/*==================================================
+            COLUMNA DERECHA
+==================================================*/
+.exp-right{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:760px;
+}
+/*==========================
+        CONTENEDOR
+===========================*/
+.exp-image-wrapper{
+    position:relative;
+    width:100%;
+    max-width:620px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+/*==========================
+      CÍRCULO DE FONDO
+===========================*/
+.exp-circle{
+    position:absolute;
+    width:560px;
+    height:560px;
+    border-radius:50%;
+    background:
+    radial-gradient(circle,
+    rgba(59,130,246,.22),
+    rgba(108,99,255,.12),
+    transparent 72%);
+    filter:blur(10px);
+    animation:circleFloat 8s ease-in-out infinite;
+}
+/*==========================
+      ANILLO DECORATIVO
+===========================*/
+.exp-circle::before{
+  transform:scale(1.15);
+    content:"";
+    position:absolute;
+    inset:30px;
+    border-radius:50%;
+    border:2px dashed rgba(255,255,255,.45);
+}
+/*==========================
+        IMAGEN
+===========================*/
+.exp-image{
+    position:relative;
+    width:640px;
+    max-width:none;
+    z-index:5;
+    animation:imageFloat 6s ease-in-out infinite;
+    filter:
+    drop-shadow(0 45px 60px rgba(0,0,0,.15));
+    transition:.45s;
+}
+.exp-image:hover{
+    transform:translateY(-20px);
+}
+/*==========================
+      TARJETAS FLOTANTES
+===========================*/
+.exp-floating-card{
+    position:absolute;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:22px;
+    padding:18px 24px;
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.08);
+    z-index:20;
+    transition:.35s;
+}
+.exp-floating-card:hover{
+    transform:translateY(-8px);
+}
+/*==========================
+        TARJETA 1
+===========================*/
+.card-projects{
+    top:70px;
+    left:-30px;
+}
+.card-projects span{
+    color:#FFD54A;
+    font-size:18px;
+    letter-spacing:2px;
+}
+.card-projects h4{
+    margin:10px 0 5px;
+    font-size:22px;
+    color:#111;
+}
+.card-projects p{
+    margin:0;
+    color:#777;
+}
+/*==========================
+        TARJETA 2
+===========================*/
+.card-responsive{
+    bottom:120px;
+    left:-40px;
+    text-align:center;
+}
+.card-responsive h4{
+    font-size:30px;
+    color:#3B82F6;
+    margin:0;
+}
+.card-responsive p{
+    margin:5px 0 0;
+    color:#666;
+}
+/*==========================
+        TARJETA 3
+===========================*/
+.card-code{
+    right:-20px;
+    bottom:180px;
+    text-align:center;
+}
+.card-code h4{
+    margin:0;
+    color:#111;
+}
+.card-code p{
+    margin:5px 0 0;
+    color:#666;
+}
+/*==========================
+      BRILLOS
+===========================*/
+.exp-image-wrapper::before{
+    content:"";
+    position:absolute;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#4F8BFF;
+    top:80px;
+    right:90px;
+    box-shadow:
+    0 0 25px #4F8BFF;
+}
+.exp-image-wrapper::after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#FFCC4D;
+    bottom:120px;
+    left:80px;
+    box-shadow:
+    0 0 20px #FFCC4D;
+}
+/*==================================================
+                ANIMACIONES
+==================================================*/
+/* Imagen flotando */
+@keyframes imageFloat{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-14px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+/* Fondo */
+@keyframes circleFloat{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.04);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+/* Tarjetas flotantes */
+@keyframes floatingCard{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+.card-projects{
+    animation:floatingCard 4.5s ease-in-out infinite;
+}
+.card-responsive{
+    animation:floatingCard 5.8s ease-in-out infinite;
+}
+.card-code{
+    animation:floatingCard 5s ease-in-out infinite;
+}
+/*==================================================
+            HOVER GENERAL
+==================================================*/
+.exp-section:hover .exp-circle{
+    transform:scale(1.05);
+    transition:1s;
+}
+.exp-section:hover .exp-image{
+    filter:
+    drop-shadow(0 55px 70px rgba(0,0,0,.18));
+}
+/*==================================================
+                RESPONSIVE
+==================================================*/
+@media (max-width:1200px){
+.exp-container{
+    grid-template-columns:1fr;
+    gap:80px;
+}
+.exp-left{
+    text-align:center;
+}
+.exp-description{
+    margin:auto;
+    margin-bottom:40px;
+}
+.exp-divider{
+    margin:40px auto;
+}
+.exp-card{
+    text-align:left;
+}
+.exp-right{
+    min-height:650px;
+}
+}
+@media (max-width:992px){
+.exp-title{
+    font-size:3rem;
+}
+.exp-image{
+    max-width:430px;
+}
+.exp-circle{
+    width:470px;
+    height:470px;
+}
+.card-projects{
+    left:0;
+}
+.card-code{
+    right:0;
+}
+}
+@media (max-width:768px){
+.exp-section{
+    padding:90px 0;
+}
+.exp-container{
+    padding:0 22px;
+}
+.exp-title{
+    font-size:2.4rem;
+}
+.exp-description{
+    font-size:1rem;
+}
+.exp-card{
+    padding:22px;
+}
+.exp-icon{
+    width:58px;
+    height:58px;
+    min-width:58px;
+    font-size:1.3rem;
+}
+.exp-image{
+    max-width:340px;
+}
+.exp-circle{
+    width:380px;
+    height:380px;
+}
+.card-projects{
+    top:20px;
+    left:5px;
+}
+.card-responsive{
+    bottom:20px;
+    left:0;
+}
+.card-code{
+    right:0;
+    bottom:120px;
+}
+}
+@media (max-width:580px){
+.exp-title{
+    font-size:2rem;
+}
+.exp-right{
+    min-height:470px;
+}
+.exp-image{
+    max-width:290px;
+}
+.exp-circle{
+    width:300px;
+    height:300px;
+}
+.exp-floating-card{
+    padding:12px 16px;
+}
+.card-projects{
+    top:0;
+}
+.card-responsive{
+    display:none;
+}
+.card-code{
+    right:0;
+    bottom:50px;
+}
+.exp-card{
+    flex-direction:column;
+    align-items:flex-start;
+}
+.exp-arrow{
+    display:none;
+}
+}
+.exp-stats{
+
+max-width:1200px;
+
+margin: 80px auto 80px;
+
+background:white;
+
+border-radius:28px;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+padding:28px 40px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+position:relative;
+
+z-index:3;
+
+}
+.stat{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.stat h3{
+
+font-size:34px;
+
+font-weight:700;
+
+}
+
+.stat p{
+
+color:#777;
+
+}
+
+.stat-icon{
+
+width:70px;
+height:70px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+font-size:30px;
+
+color:white;
+
+}
+
+.purple{
+
+background:linear-gradient(135deg,#6A5AF9,#8F62FF);
+
+}
+
+.green{
+
+background:linear-gradient(135deg,#31C68B,#38E1A2);
+
+}
+
+.orange{
+
+background:linear-gradient(135deg,#FFA726,#FF8A00);
+
+}
+
+.blue{
+
+background:linear-gradient(135deg,#4E8EFF,#2C6EFF);
+
+}
+.divider{
+
+width:1px;
+
+height:70px;
+
+background:#e8e8e8;
+
 }

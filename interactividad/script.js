@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cleanSrc.includes("youtube.com") ||
       cleanSrc.includes("embed") ||
       cleanSrc.includes("youtu.be");
-    const isImage = /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(cleanSrc);
+    const isImage = /\.(jpg|jpeg|png|webp|gif|svg|avif)$/i.test(cleanSrc);
 
     if (isYouTube) {
       modalBody.innerHTML = `
